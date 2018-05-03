@@ -25,16 +25,19 @@ public class WeatherPresenterImpl implements Manager.WeatherPresenter, WeatherAd
 
   @Override
   public void getWeatherData() {
+    weatherView.loading();
     ServiceBuilder.getWeatherService().getWeatherOfSeveralCountries(model.getListCityIds())
         .enqueue(new BaseCallback<ListWeatherCountryDTO>() {
 
           @Override
           public void success(ListWeatherCountryDTO data) {
+            weatherView.dismissLoading();
             model.setWeatherItems(Mapper.convertToModel(data));
           }
 
           @Override
           public void error(String message) {
+            weatherView.dismissLoading();
             AlertDialogUtils.showError(weatherView.getActivityContext(), message);
           }
         });

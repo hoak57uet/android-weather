@@ -18,5 +18,9 @@ public interface Manager {
   public interface WeatherView {
 
     Context getActivityContext();
+
+    void dismissLoading();
+
+    void loading();
   }
 }

@@ -6,4 +6,5 @@ package com.gem.weather.utility;
 
 public class Constanst {
   public static final String WEATHER_API_KEY = "4934b4e2cca6ab442a98234d6d0fa029";
+  public static final String SIG_RELOAD_WEATHER_LIST = "com.gem.weather.action.reload_list_weather";
 }
