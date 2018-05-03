@@ -14,7 +14,7 @@ public class MainInfoDTO {
   private Double pressure;
   @SerializedName("humidity")
   @Expose
-  private Integer humidity;
+  private Double humidity;
   @SerializedName("temp_min")
   @Expose
   private Double tempMin;
@@ -44,15 +44,15 @@ public class MainInfoDTO {
     return this;
   }
 
-  public Integer getHumidity() {
+  public Double getHumidity() {
     return humidity;
   }
 
-  public void setHumidity(Integer humidity) {
+  public void setHumidity(Double humidity) {
     this.humidity = humidity;
   }
 
-  public MainInfoDTO withHumidity(Integer humidity) {
+  public MainInfoDTO withHumidity(Double humidity) {
     this.humidity = humidity;
     return this;
   }

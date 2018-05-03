@@ -18,6 +18,6 @@ public interface Manager {
 
     AppCompatActivity getContextActivity();
 
-    void updateDetailView(WeatherCountryDTO weatherCountryDTO);
+    void updateDetailView(DetailModel model);
   }
 }

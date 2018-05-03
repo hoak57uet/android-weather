@@ -20,10 +20,10 @@ public class SysDTO {
     private String country;
     @SerializedName("sunrise")
     @Expose
-    private Integer sunrise;
+    private Long sunrise;
     @SerializedName("sunset")
     @Expose
-    private Integer sunset;
+    private Long sunset;
 
     public Integer getType() {
         return type;
@@ -77,28 +77,28 @@ public class SysDTO {
         return this;
     }
 
-    public Integer getSunrise() {
+    public Long getSunrise() {
         return sunrise;
     }
 
-    public void setSunrise(Integer sunrise) {
+    public void setSunrise(Long sunrise) {
         this.sunrise = sunrise;
     }
 
-    public SysDTO withSunrise(Integer sunrise) {
+    public SysDTO withSunrise(Long sunrise) {
         this.sunrise = sunrise;
         return this;
     }
 
-    public Integer getSunset() {
+    public Long getSunset() {
         return sunset;
     }
 
-    public void setSunset(Integer sunset) {
+    public void setSunset(Long sunset) {
         this.sunset = sunset;
     }
 
-    public SysDTO withSunset(Integer sunset) {
+    public SysDTO withSunset(Long sunset) {
         this.sunset = sunset;
         return this;
     }

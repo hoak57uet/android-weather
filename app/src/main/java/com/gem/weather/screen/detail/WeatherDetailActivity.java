@@ -8,17 +8,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gem.weather.R;
-import com.gem.weather.rest.dto.MainInfoDTO;
-import com.gem.weather.rest.dto.WeatherCountryDTO;
-import com.gem.weather.rest.dto.WeatherDTO;
-import com.gem.weather.rest.dto.WindDTO;
 import com.gem.weather.utility.Constanst;
 import com.gem.weather.utility.DateTimeUtils;
 import com.gem.weather.utility.NumberUtils;
 import com.gem.weather.utility.TemperatureUtils;
 import com.squareup.picasso.Picasso;
-
-import java.util.List;
 
 /**
  * Created by HoaPham on 5/3/18.
@@ -61,27 +55,18 @@ public class WeatherDetailActivity extends AppCompatActivity implements Manager.
   }
 
   @Override
-  public void updateDetailView(WeatherCountryDTO weatherCountryDTO) {
+  public void updateDetailView(DetailModel model) {
     mTimeTv.setText(DateTimeUtils.showNow());
-    mLocationNameTv.setText(weatherCountryDTO.getName());
+    mLocationNameTv.setText(model.getName());
 
-    MainInfoDTO main = weatherCountryDTO.getMain();
-    if (main != null) {
-      mTemperatureTv.setText(TemperatureUtils.toString(weatherCountryDTO.getMain().getTemp()));
-      mHumidityTv.setText(NumberUtils.formatPercent(main.getHumidity()));
-      mPressureTv.setText(NumberUtils.getPressure(main.getPressure()));
-    }
+    mTemperatureTv.setText(TemperatureUtils.toString(model.getMainTemp()));
+    mHumidityTv.setText(NumberUtils.formatPercent(model.getMainHumidity()));
+    mPressureTv.setText(NumberUtils.getPressure(model.getMainPressure()));
     //wind
-    WindDTO windDTO = weatherCountryDTO.getWind();
-    if (windDTO != null) {
-      mWindSpeedTv.setText(NumberUtils.getWindSpeed(windDTO.getSpeed()));
-    }
-    List<WeatherDTO> weatherDTOS = weatherCountryDTO.getWeather();
-    if (weatherDTOS != null && !weatherDTOS.isEmpty()) {
-      mActualWeatherTv.setText(weatherDTOS.get(0).getDescription());
-      String icon = weatherDTOS.get(0).getIcon();
-      Picasso.get().load(String.format(Constanst.ICON_FULL_URL, icon)).into(mIconImg);
-    }
+    mWindSpeedTv.setText(NumberUtils.getWindSpeed(model.getWindSpeed()));
+    mActualWeatherTv.setText(model.getWeatherDesc());
+    String icon = model.getWeatherIcon();
+    Picasso.get().load(String.format(Constanst.ICON_FULL_URL, icon)).into(mIconImg);
   }
 
   @Override

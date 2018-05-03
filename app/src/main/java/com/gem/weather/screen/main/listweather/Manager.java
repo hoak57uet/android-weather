@@ -25,6 +25,6 @@ public interface Manager {
 
     void loading();
 
-    void viewDetailWeather(WeatherCountryDTO weatherDTO);
+    void viewDetailWeather(ItemModel weatherDTO);
   }
 }
