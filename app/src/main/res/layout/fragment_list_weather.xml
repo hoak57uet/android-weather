@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/list_weather_rv"
@@ -11,4 +11,16 @@
         android:background="@drawable/bg_list_weather">
 
     </android.support.v7.widget.RecyclerView>
-</LinearLayout>
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/list_weather_loading_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+</RelativeLayout>

@@ -4,4 +4,5 @@
     <dimen name="item_actual_weather">16sp</dimen>
     <dimen name="padding_item_weather">20dp</dimen>
     <dimen name="item_temperature">50sp</dimen>
+    <dimen name="reload_button_margin">10dp</dimen>
 </resources>
