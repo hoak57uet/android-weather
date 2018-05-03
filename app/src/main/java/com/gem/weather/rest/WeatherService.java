@@ -1,5 +1,6 @@
 package com.gem.weather.rest;
 
+import com.gem.weather.rest.dto.ListWeatherCountryDTO;
 import com.gem.weather.rest.dto.WeatherCountryDTO;
 
 import retrofit2.Call;
@@ -13,4 +14,7 @@ import retrofit2.http.Query;
 public interface WeatherService {
   @GET("weather")
   Call<WeatherCountryDTO> getWeatherOfCountries(@Query("q") String countries);
+
+  @GET("group")
+  Call<ListWeatherCountryDTO> getWeatherOfSeveralCountries(@Query("id") String listOfIds);
 }

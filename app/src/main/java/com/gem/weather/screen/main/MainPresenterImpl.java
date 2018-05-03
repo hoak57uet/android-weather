@@ -3,6 +3,7 @@ package com.gem.weather.screen.main;
 import com.gem.weather.rest.BaseCallback;
 import com.gem.weather.rest.ServiceBuilder;
 import com.gem.weather.rest.dto.WeatherCountryDTO;
+import com.gem.weather.screen.main.listweather.WeatherModel;
 import com.gem.weather.utility.AlertDialogUtils;
 
 import java.util.List;

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="item_location_name">24sp</dimen>
+    <dimen name="item_actual_weather">16sp</dimen>
+    <dimen name="padding_item_weather">20dp</dimen>
+    <dimen name="item_temperature">50sp</dimen>
+</resources>
