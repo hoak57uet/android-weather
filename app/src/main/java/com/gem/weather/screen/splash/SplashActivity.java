@@ -16,13 +16,14 @@ public class SplashActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_splash);
-    Handler handler = new Handler();
-    handler.postDelayed(new Runnable() {
-      @Override
-      public void run() {
-        SplashActivity.this.startActivity(new Intent(SplashActivity.this, MainActivity.class));
-        SplashActivity.this.finish();
-      }
-    }, DELAY_TIME_SPLASH);
+//    throw new RuntimeException("Test fabric");
+//    Handler handler = new Handler();
+//    handler.postDelayed(new Runnable() {
+//      @Override
+//      public void run() {
+//        SplashActivity.this.startActivity(new Intent(SplashActivity.this, MainActivity.class));
+//        SplashActivity.this.finish();
+//      }
+//    }, DELAY_TIME_SPLASH);
   }
 }

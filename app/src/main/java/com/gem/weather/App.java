@@ -2,6 +2,9 @@ package com.gem.weather;
 
 import android.app.Application;
 
+import com.crashlytics.android.Crashlytics;
+
+import io.fabric.sdk.android.Fabric;
 import io.realm.Realm;
 
 /**
@@ -15,6 +18,7 @@ public class App extends Application {
   public void onCreate() {
     super.onCreate();
     Realm.init(this);
+    Fabric.with(this, new Crashlytics());
     app = this;
   }
 
