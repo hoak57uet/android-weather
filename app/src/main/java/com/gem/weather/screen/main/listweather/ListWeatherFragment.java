@@ -16,7 +16,6 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.gem.weather.R;
-import com.gem.weather.rest.dto.WeatherCountryDTO;
 import com.gem.weather.screen.detail.WeatherDetailActivity;
 import com.gem.weather.utility.AlertDialogUtils;
 import com.gem.weather.utility.Constanst;
@@ -88,9 +87,9 @@ public class ListWeatherFragment extends Fragment implements Manager.WeatherView
   }
 
   @Override
-  public void viewDetailWeather(WeatherCountryDTO weatherDTO) {
+  public void viewDetailWeather(ItemModel item) {
     Intent detailIntent = new Intent(getActivityContext(), WeatherDetailActivity.class);
-    detailIntent.putExtra(Constanst.KEY_WEATHER_DETAIL, weatherDTO.getName());
+    detailIntent.putExtra(Constanst.KEY_WEATHER_DETAIL, item.getLocationName());
     startActivity(detailIntent);
   }
 }

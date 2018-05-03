@@ -5,7 +5,7 @@ package com.gem.weather.utility;
  */
 
 public class NumberUtils {
-  public static String formatPercent(Integer number) {
+  public static String formatPercent(Double number) {
     return String.valueOf(number) + "%";
   }
 

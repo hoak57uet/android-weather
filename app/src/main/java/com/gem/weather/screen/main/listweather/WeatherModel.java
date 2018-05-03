@@ -11,7 +11,6 @@ import java.util.List;
 
 public class WeatherModel {
   private List<ItemModel> items;
-  private ListWeatherCountryDTO listWeatherCountryDTO;
   private WeatherAdapter listWeatherAdapter;
   private final String listCityIds = "2643743,3067696,5391959";
 
@@ -53,14 +52,6 @@ public class WeatherModel {
     return listCityIds;
   }
 
-  public ListWeatherCountryDTO getListWeatherCountryDTO() {
-    return listWeatherCountryDTO;
-  }
-
-  public WeatherModel setListWeatherCountryDTO(ListWeatherCountryDTO listWeatherCountryDTO) {
-    this.listWeatherCountryDTO = listWeatherCountryDTO;
-    return this;
-  }
 
   public void setOnItemClickListener(WeatherAdapter.OnItemClickListener listener) {
     listWeatherAdapter.setOnItemClickListener(listener);

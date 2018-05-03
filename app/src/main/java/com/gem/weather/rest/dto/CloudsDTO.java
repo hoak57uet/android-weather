@@ -8,17 +8,17 @@ public class CloudsDTO {
 
     @SerializedName("all")
     @Expose
-    private Integer all;
+    private Double all;
 
-    public Integer getAll() {
+    public Double getAll() {
         return all;
     }
 
-    public void setAll(Integer all) {
+    public void setAll(Double all) {
         this.all = all;
     }
 
-    public CloudsDTO withAll(Integer all) {
+    public CloudsDTO withAll(Double all) {
         this.all = all;
         return this;
     }

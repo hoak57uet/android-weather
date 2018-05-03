@@ -31,7 +31,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
 
   @Override
   public void onBindViewHolder(ViewHolder holder, final int position) {
-    ItemModel item = items.get(position);
+    final ItemModel item = items.get(position);
     holder.mLocationNameTv.setText(item.getLocationName());
     holder.mActualWeatherTv.setText(item.getActualWeather());
     holder.mTemperatureTv.setText(TemperatureUtils.toString(item.getTemp()));
@@ -40,7 +40,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
       @Override
       public void onClick(View v) {
         if (onItemClickListener != null)
-          onItemClickListener.onItemClicked(position);
+          onItemClickListener.onItemClicked(item);
       }
     });
   }
@@ -70,6 +70,6 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
   }
 
   interface OnItemClickListener {
-    public void onItemClicked(int position);
+    public void onItemClicked(ItemModel model);
   }
 }
