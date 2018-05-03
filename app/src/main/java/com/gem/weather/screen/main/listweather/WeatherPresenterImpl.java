@@ -13,14 +13,14 @@ import java.util.List;
  * Created by HoaPham on 5/3/18.
  */
 
-public class WeatherPresenterImpl implements Manager.WeatherPresenter, WeatherAdapter.OnItemClickListener {
+public class WeatherPresenterImpl implements Manager.WeatherPresenter {
   private Manager.WeatherView weatherView;
   private WeatherModel model;
 
   public WeatherPresenterImpl(Manager.WeatherView weatherView) {
     this.weatherView = weatherView;
     model = new WeatherModel();
-    model.setOnItemClickListener(this);
+    model.setOnItemClickListener(new OnItemClicked());
   }
 
   @Override
@@ -33,6 +33,7 @@ public class WeatherPresenterImpl implements Manager.WeatherPresenter, WeatherAd
           public void success(ListWeatherCountryDTO data) {
             weatherView.dismissLoading();
             model.setWeatherItems(Mapper.convertToModel(data));
+            model.setListWeatherCountryDTO(data);
           }
 
           @Override
@@ -43,16 +44,19 @@ public class WeatherPresenterImpl implements Manager.WeatherPresenter, WeatherAd
         });
   }
 
-  @Override
-  public void onItemClicked(int position) {
-    //pass to detail activity
-    ListWeatherCountryDTO listWeatherCountryDTO = model.getListWeatherCountryDTO();
-    if (listWeatherCountryDTO == null)
-      return;
-    List<WeatherCountryDTO> weatherCountryDTOS = listWeatherCountryDTO.getWeathers();
-    if (weatherCountryDTOS == null || weatherCountryDTOS.isEmpty())
-      return;
-    WeatherCountryDTO weatherDTO = weatherCountryDTOS.get(position);
+  private class OnItemClicked implements WeatherAdapter.OnItemClickListener {
+    @Override
+    public void onItemClicked(int position) {
+      //pass to detail activity
+      ListWeatherCountryDTO listWeatherCountryDTO = model.getListWeatherCountryDTO();
+      if (listWeatherCountryDTO == null)
+        return;
+      List<WeatherCountryDTO> weatherCountryDTOS = listWeatherCountryDTO.getWeathers();
+      if (weatherCountryDTOS == null || weatherCountryDTOS.isEmpty())
+        return;
+      WeatherCountryDTO weatherDTO = weatherCountryDTOS.get(position);
+      weatherView.viewDetailWeather(weatherDTO);
+    }
   }
 
   @Override

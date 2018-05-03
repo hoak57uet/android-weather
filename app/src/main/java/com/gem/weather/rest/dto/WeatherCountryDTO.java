@@ -4,9 +4,10 @@ package com.gem.weather.rest.dto;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class WeatherCountryDTO extends BaseResponseDTO {
+public class WeatherCountryDTO extends BaseResponseDTO implements Serializable{
 
   @SerializedName("coord")
   @Expose
