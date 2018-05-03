@@ -5,4 +5,12 @@
     <dimen name="padding_item_weather">20dp</dimen>
     <dimen name="item_temperature">50sp</dimen>
     <dimen name="reload_button_margin">10dp</dimen>
+    <dimen name="detail_temperature">100sp</dimen>
+    <dimen name="detail_temperature_unit">40sp</dimen>
+    <dimen name="detail_icon_size">100sp</dimen>
+    <dimen name="detail_icon_margin">5dp</dimen>
+    <dimen name="padding_detail">10dp</dimen>
+    <dimen name="padding_item_small">3dp</dimen>
+    <dimen name="detail_desc">-30dp</dimen>
+
 </resources>

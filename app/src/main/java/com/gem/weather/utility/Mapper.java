@@ -25,7 +25,7 @@ public class Mapper {
         model.setActualWeather(weathers.get(0).getMain());
       }
       if (w.getMain() != null) {
-        model.setTemp(TemperatureUtils.KtoCencious(w.getMain().getTemp()));
+        model.setTemp(w.getMain().getTemp());
       }
       models.add(model);
     }

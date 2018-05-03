@@ -28,7 +28,7 @@ public class AlertDialogUtils {
   }
 
   public static void showLoading(Context context) {
-    if (progressDialog == null) {
+    if (progressDialog == null || !progressDialog.getContext().equals(context)) {
       progressDialog = new ProgressDialog(context);
       progressDialog.setMessage(context.getString(R.string.loading));
     }

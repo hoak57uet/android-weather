@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".screen.main.MainActivity"/>
+        <activity android:name=".screen.detail.WeatherDetailActivity"/>
     </application>
 
 </manifest>

@@ -1,6 +1,5 @@
 package com.gem.weather.screen.main.listweather;
 
-import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.gem.weather.R;
+import com.gem.weather.rest.dto.WeatherCountryDTO;
+import com.gem.weather.screen.detail.WeatherDetailActivity;
 import com.gem.weather.utility.AlertDialogUtils;
 import com.gem.weather.utility.Constanst;
 
@@ -84,5 +85,12 @@ public class ListWeatherFragment extends Fragment implements Manager.WeatherView
   public void onDestroy() {
     getActivity().unregisterReceiver(reloadListener);
     super.onDestroy();
+  }
+
+  @Override
+  public void viewDetailWeather(WeatherCountryDTO weatherDTO) {
+    Intent detailIntent = new Intent(getActivityContext(), WeatherDetailActivity.class);
+    detailIntent.putExtra(Constanst.KEY_WEATHER_DETAIL, weatherDTO.getName());
+    startActivity(detailIntent);
   }
 }
