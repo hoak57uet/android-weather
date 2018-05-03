@@ -24,8 +24,7 @@
         <activity android:name=".screen.detail.WeatherDetailActivity"/>
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="b829a7e74922d0d0712a91f44dc23ade18bb228d"
-            />
+            android:value="409e1750190eab52f8096429a1838c63a4c4998c" />
     </application>
 
 </manifest>

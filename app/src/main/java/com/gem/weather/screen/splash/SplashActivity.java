@@ -16,7 +16,7 @@ public class SplashActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_splash);
-//    throw new RuntimeException("Test fabric");
+    throw new RuntimeException("Test fabric");
 //    Handler handler = new Handler();
 //    handler.postDelayed(new Runnable() {
 //      @Override
