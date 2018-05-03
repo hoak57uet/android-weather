@@ -10,7 +10,7 @@ import retrofit2.Response;
  * Created by HoaPham on 5/3/18.
  */
 
-public abstract class BaseCallback<T extends BaseResponseDTO> implements Callback<T> {
+public abstract class BaseCallback<T> implements Callback<T> {
   @Override
   public void onResponse(Call<T> call, Response<T> response) {
     if (!response.isSuccessful()) {
