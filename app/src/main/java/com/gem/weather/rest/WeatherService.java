@@ -17,4 +17,7 @@ public interface WeatherService {
 
   @GET("group")
   Call<ListWeatherCountryDTO> getWeatherOfSeveralCountries(@Query("id") String listOfIds);
+
+  @GET("weather")
+  Call<WeatherCountryDTO> getWeatherOfLatLng(@Query("lat") Double lat, @Query("lon") Double lng);
 }
