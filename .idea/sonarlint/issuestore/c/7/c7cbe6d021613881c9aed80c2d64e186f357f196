@@ -1,0 +1,5 @@
+
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ôÙŽÚ8¨çý´²,
+zsquid:S1450"YRemove the "mLoadingRl" field and declare it as a local variable in the relevant methods.(ø•ƒŸùÿÿÿÿ8¨çý´²,
+Osquid:S1068".Remove this unused "mLoadingRl" private field.(ø•ƒŸùÿÿÿÿ8¨çý´²,
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(îŒ˜’ûÿÿÿÿ8¨çý´²,

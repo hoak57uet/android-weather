@@ -1,13 +1,25 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'realm-android'
+realm {
+    syncEnabled = true;
+}
 android {
+    signingConfigs {
+        weatherSigning {
+            keyAlias 'AWeather'
+            keyPassword 'gem@weather'
+            storeFile file('weather.jks')
+            storePassword 'gem@weather'
+        }
+    }
+    flavorDimensions "weather"
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.gem.weather"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 3333
+        versionName "3.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -16,13 +28,36 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+        dev {
+            applicationId "com.gem.weather.dev"
+            dimension "weather"
+            signingConfig signingConfigs.weatherSigning
+        }
+        staging {
+            applicationId "com.gem.weather.test"
+            dimension "weather"
+            signingConfig signingConfigs.weatherSigning
+        }
+        production {
+            applicationId "com.gem.weather"
+            dimension "weather"
+            signingConfig signingConfigs.weatherSigning
+        }
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:appcompat-v7:${supportLibraryVersion}"
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation('com.android.support.test.espresso:espresso-contrib:2.0') {
+        exclude module: 'support-annotations'
+    }
+    implementation "com.android.support:design:${supportLibraryVersion}"
+    implementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.google.android.gms:play-services-location:15.0.0'
 }

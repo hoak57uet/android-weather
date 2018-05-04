@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="?selectableItemBackground"
+              android:orientation="vertical"
+              android:padding="@dimen/padding_item_weather">
+
+    <TextView
+        android:id="@+id/item_weather_location_name_tv"
+        style="@style/ItemWeather.LocationName"
+        android:text="Ha Noi"/>
+
+    <TextView
+        android:id="@+id/item_weather_actual_weather_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Mostly Cloudy"
+        android:textColor="@color/item_location_name"
+        android:textSize="@dimen/item_actual_weather"/>
+
+    <TextView
+        android:id="@+id/item_weather_temperature_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="28°"
+        android:textColor="@color/item_location_name"
+        android:textSize="@dimen/item_temperature"/>
+</LinearLayout>
