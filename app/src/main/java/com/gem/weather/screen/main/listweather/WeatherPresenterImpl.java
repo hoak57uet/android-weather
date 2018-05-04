@@ -1,5 +1,6 @@
 package com.gem.weather.screen.main.listweather;
 
+import android.location.Location;
 import android.os.AsyncTask;
 
 import com.gem.weather.db.entity.WeatherEntity;
@@ -32,9 +33,9 @@ public class WeatherPresenterImpl implements Manager.WeatherPresenter {
 
   @Override
   public void getWeatherData() {
-    if (NetworkUtils.isNetworkAvailable()){
+    if (NetworkUtils.isNetworkAvailable()) {
       getDataWithNetwork();
-    }else {
+    } else {
       getDataWithoutNetwork();
     }
   }
@@ -98,5 +99,25 @@ public class WeatherPresenterImpl implements Manager.WeatherPresenter {
   public WeatherPresenterImpl setModel(WeatherModel model) {
     this.model = model;
     return this;
+  }
+
+  @Override
+  public void getWeatherLocation(Location location) {
+    if (NetworkUtils.isNetworkAvailable()) {
+      weatherView.loading();
+      ServiceBuilder.getWeatherService().getWeatherOfLatLng(location.getLatitude(), location.getLongitude())
+          .enqueue(new BaseCallback<WeatherCountryDTO>() {
+            @Override
+            public void success(WeatherCountryDTO data) {
+              weatherView.dismissLoading();
+              AlertDialogUtils.showError(weatherView.getActivityContext(), data.getName() + "-" + data.getMain().getTemp());
+            }
+
+            @Override
+            public void error(String message) {
+              weatherView.dismissLoading();
+            }
+          });
+    }
   }
 }

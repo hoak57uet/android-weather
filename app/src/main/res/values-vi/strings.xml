@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Thời tiết</string>
+    <string name="error_title_dialog">Lỗi</string>
+    <string name="loading">Đang tải...</string>
+    <string name="current_location">Vị trí hiện tại</string>
+</resources>

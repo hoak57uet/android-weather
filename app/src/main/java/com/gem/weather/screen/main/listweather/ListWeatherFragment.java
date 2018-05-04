@@ -115,6 +115,7 @@ public class ListWeatherFragment extends Fragment implements Manager.WeatherView
           @Override
           public void onSuccess(Location location) {
             if (location != null) {
+              presenter.getWeatherLocation(location);
             }
           }
         });
